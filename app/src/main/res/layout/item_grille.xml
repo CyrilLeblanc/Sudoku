@@ -1,73 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/case_button"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
-        android:id="@+id/butt1"
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case1"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="1"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         />
-    <Button
-        android:id="@+id/butt2"
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case2"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt1"/>
-    <Button
-        android:id="@+id/butt3"
+        app:layout_constraintStart_toEndOf="@+id/case1"
+        app:layout_constraintTop_toTopOf="@+id/case1"/>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case3"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt2"/>
-    <Button
-        android:id="@+id/butt4"
+        app:layout_constraintStart_toEndOf="@+id/case2"
+        app:layout_constraintTop_toTopOf="@+id/case1"/>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case4"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt3"/>
-    <Button
-        android:id="@+id/butt5"
+        app:layout_constraintStart_toStartOf="@id/case1"
+        app:layout_constraintTop_toBottomOf="@+id/case1"/>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case5"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt4"/>
-    <Button
-        android:id="@+id/butt6"
+        app:layout_constraintStart_toEndOf="@+id/case1"
+        app:layout_constraintTop_toTopOf="@id/case4"/>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case6"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt5"/>
-    <Button
-        android:id="@+id/butt7"
+        app:layout_constraintStart_toEndOf="@+id/case5"
+        app:layout_constraintTop_toTopOf="@+id/case5"/>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case7"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt6"/>
-    <Button
-        android:id="@+id/butt8"
+        app:layout_constraintTop_toBottomOf="@id/case4"
+        app:layout_constraintStart_toStartOf="@id/case1"/>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case8"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt7"/>
-    <Button
-        android:id="@+id/butt9"
+        app:layout_constraintTop_toBottomOf="@id/case5"
+        app:layout_constraintStart_toEndOf="@id/case7"/>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/CaseButton"
+        android:id="@+id/case9"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butt8"/>
+        app:layout_constraintTop_toBottomOf="@id/case6"
+        app:layout_constraintStart_toEndOf="@id/case8"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

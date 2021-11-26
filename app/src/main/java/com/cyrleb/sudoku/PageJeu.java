@@ -27,13 +27,16 @@ public class PageJeu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding = ActivityPageJeuBinding.inflate(getLayoutInflater());
         View v = mBinding.getRoot();
+
+        // NUMBER INPUT
         nAdapter = new AdapterNumbers();
         mBinding.numbers.setLayoutManager(new GridLayoutManager(this, 10));
         mBinding.numbers.setAdapter(nAdapter);
         nAdapter.FillArray();
 
+        // GRID
         gAdapter = new AdapterGrille();
-        mBinding.grille.setLayoutManager(new GridLayoutManager(this, 9));
+        mBinding.grille.setLayoutManager(new GridLayoutManager(this, 3));
         mBinding.grille.setAdapter(gAdapter);
         gAdapter.FillArray();
 

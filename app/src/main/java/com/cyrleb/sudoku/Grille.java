@@ -27,10 +27,6 @@ public class Grille {
             cases[i] = sections[i/3].getRow(row%3)[i%3];
         }
 
-        for (String aCase : cases) {
-            Log.wtf("wtf", "case : "+aCase.toString());
-        }
-
         // vérifier les dupliqués
         for(int i = 0; i <= 7; i++){
             if (cases[i] != ""){
@@ -57,10 +53,6 @@ public class Grille {
         for (int i = 0; i < cases.length ; i++){
 
             cases[i] = sections[i/3].getCol(col%3)[i%3];
-        }
-
-        for (String aCase : cases) {
-            Log.wtf("wtf", "case : "+aCase.toString());
         }
 
         // vérifier les dupliqués

@@ -56,7 +56,7 @@ public class AdapterGrille extends RecyclerView.Adapter {
         }
         void bindTo(final String item, int position) {
             if (item != null) {
-                mBinding.butt1.setText("1");
+                mBinding.case1.setText("1");
             }
         }
     }
