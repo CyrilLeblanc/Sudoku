@@ -1,7 +1,9 @@
 package com.cyrleb.sudoku;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -56,7 +58,21 @@ public class AdapterGrille extends RecyclerView.Adapter {
         }
         void bindTo(final String item, int position) {
             if (item != null) {
-                mBinding.case1.setText("1");
+
+                androidx.appcompat.widget.AppCompatButton[] test = new androidx.appcompat.widget.AppCompatButton[9];
+                
+
+
+                mBinding.case1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.wtf("wtf", "Le 1 de la section " + position);
+                    }
+                });
+
+
+                // CODE TO ADD
+
             }
         }
     }
