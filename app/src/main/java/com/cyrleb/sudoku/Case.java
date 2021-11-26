@@ -5,12 +5,12 @@ public class Case {
     private String value;
     private boolean modifiable;
 
-    Case(String value){
+    public Case(String value){
         this.value = value;
         modifiable = false;
     }
 
-    Case(String value, boolean modifiable){
+    public Case(String value, boolean modifiable){
         this.value = value;
         this.modifiable = modifiable;
     }
@@ -27,5 +27,9 @@ public class Case {
 
     public boolean getModifiable(){
         return this.modifiable;
+    }
+
+    public String toString(){
+        return this.value;
     }
 }
