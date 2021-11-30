@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cyrleb.sudoku.databinding.ItemGrilleBinding;
@@ -59,20 +60,16 @@ public class AdapterGrille extends RecyclerView.Adapter {
         void bindTo(final String item, int position) {
             if (item != null) {
 
-                androidx.appcompat.widget.AppCompatButton[] test = new androidx.appcompat.widget.AppCompatButton[9];
-                
-
-
-                mBinding.case1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Log.wtf("wtf", "Le 1 de la section " + position);
-                    }
-                });
-
-
-                // CODE TO ADD
-
+                androidx.appcompat.widget.AppCompatButton[] cases = {mBinding.case1, mBinding.case2, mBinding.case3, mBinding.case4, mBinding.case5, mBinding.case6, mBinding.case7, mBinding.case8, mBinding.case9};
+                for (int i = 0; i < cases.length; i++) {
+                    int finalI = i;
+                    cases[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.wtf("wtf", position + "/" + finalI);
+                        }
+                    });
+                }
             }
         }
     }
