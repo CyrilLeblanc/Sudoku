@@ -1,6 +1,8 @@
 package com.cyrleb.sudoku;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -56,6 +58,13 @@ public class AdapterNumbers extends RecyclerView.Adapter {
         void bindTo(final String item, int position) {
             if (item != null) {
                 mBinding.button.setText(item);
+
+                mBinding.button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Singleton.getInstance().setSelectedNumber(item);
+                    }
+                });
             }
         }
     }

@@ -7,11 +7,9 @@ import java.util.List;
 public class Grille {
 
     private Section[][] grille;
-
     public Grille(Section[][] grille){
         this.grille = grille;
     }
-
 
     public boolean withoutDuplicateInRow(int row){
         // récupérer les 3 sections
@@ -37,7 +35,6 @@ public class Grille {
                 }
             }
         }
-
         return true;
     }
 
@@ -86,6 +83,10 @@ public class Grille {
         }
 
         return true;
+    }
+
+    public Section getSection(int x, int y){
+        return this.grille[x][y];
     }
 
     public String toString(){

@@ -17,8 +17,8 @@ public class Section {
         this.section[row][col].setValue(value);
     }
 
-    public String getCase(int row, int col){
-        return this.section[row][col].getValue();
+    public Case getCase(int x, int y){
+        return this.section[x][y];
     }
 
     //renvoie true seulement s'il n'y a pas de numéro en double dans la section
@@ -81,5 +81,4 @@ public class Section {
         }
         return str;
     }
-
 }

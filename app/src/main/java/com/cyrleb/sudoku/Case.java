@@ -15,6 +15,11 @@ public class Case {
         this.modifiable = modifiable;
     }
 
+    public Case(){
+        this.modifiable = true;
+        this.value = "";
+    }
+
     public String getValue(){
         return this.value;
     }

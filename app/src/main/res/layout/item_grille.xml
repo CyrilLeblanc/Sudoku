@@ -11,7 +11,7 @@
         android:id="@+id/case1"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="1"
+        android:text=""
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -20,7 +20,7 @@
         android:id="@+id/case2"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="2"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/case1"
         app:layout_constraintTop_toTopOf="@+id/case1"/>
     <androidx.appcompat.widget.AppCompatButton
@@ -28,7 +28,7 @@
         android:id="@+id/case3"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="3"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/case2"
         app:layout_constraintTop_toTopOf="@+id/case1"/>
     <androidx.appcompat.widget.AppCompatButton
@@ -36,7 +36,7 @@
         android:id="@+id/case4"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="4"
+        android:text=""
         app:layout_constraintStart_toStartOf="@id/case1"
         app:layout_constraintTop_toBottomOf="@+id/case1"/>
     <androidx.appcompat.widget.AppCompatButton
@@ -44,7 +44,7 @@
         android:id="@+id/case5"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="5"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/case1"
         app:layout_constraintTop_toTopOf="@id/case4"/>
     <androidx.appcompat.widget.AppCompatButton
@@ -52,7 +52,7 @@
         android:id="@+id/case6"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="6"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/case5"
         app:layout_constraintTop_toTopOf="@+id/case5"/>
     <androidx.appcompat.widget.AppCompatButton
@@ -60,7 +60,7 @@
         android:id="@+id/case7"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="7"
+        android:text=""
         app:layout_constraintTop_toBottomOf="@id/case4"
         app:layout_constraintStart_toStartOf="@id/case1"/>
     <androidx.appcompat.widget.AppCompatButton
@@ -68,7 +68,7 @@
         android:id="@+id/case8"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="8"
+        android:text=""
         app:layout_constraintTop_toBottomOf="@id/case5"
         app:layout_constraintStart_toEndOf="@id/case7"/>
     <androidx.appcompat.widget.AppCompatButton
@@ -76,7 +76,7 @@
         android:id="@+id/case9"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="9"
+        android:text=""
         app:layout_constraintTop_toBottomOf="@id/case6"
         app:layout_constraintStart_toEndOf="@id/case8"/>
 

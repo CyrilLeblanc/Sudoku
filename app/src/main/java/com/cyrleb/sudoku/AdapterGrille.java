@@ -1,7 +1,9 @@
 package com.cyrleb.sudoku;
 
 
+import android.graphics.Color;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.cyrleb.sudoku.databinding.ItemGrilleBinding;
 import com.cyrleb.sudoku.databinding.ItemNumberBinding;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 public class AdapterGrille extends RecyclerView.Adapter {
@@ -57,18 +60,29 @@ public class AdapterGrille extends RecyclerView.Adapter {
             super(binding.getRoot());
             mBinding = binding;
         }
+
         void bindTo(final String item, int position) {
             if (item != null) {
-
                 androidx.appcompat.widget.AppCompatButton[] cases = {mBinding.case1, mBinding.case2, mBinding.case3, mBinding.case4, mBinding.case5, mBinding.case6, mBinding.case7, mBinding.case8, mBinding.case9};
                 for (int i = 0; i < cases.length; i++) {
                     int finalI = i;
-                    cases[i].setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Log.wtf("wtf", position + "/" + finalI);
-                        }
-                    });
+                    Case c = Singleton.getInstance().getGrille().getSection(position % 3, position / 3).getCase(finalI % 3, finalI / 3);
+                    if (c.getModifiable()){
+                        cases[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //Log.wtf("wtf", position + "/" + finalI);
+                                String value = Singleton.getInstance().getSelectedNumber();
+                                if (value == "X") { value = ""; }
+                                cases[finalI].setText(value);
+                                c.setValue(value);
+                                Singleton.getInstance().controlFinishedGame();
+                            }
+                        });
+                    } else {
+                        cases[finalI].setTextColor(Color.GRAY);
+                    }
+                    cases[i].setText(c.getValue());
                 }
             }
         }
