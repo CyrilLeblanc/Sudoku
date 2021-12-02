@@ -11,12 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        android:textAlignment="center"
         android:textSize="30dp"
         android:id="@+id/finishLabel"
         app:layout_constraintTop_toBottomOf="@+id/grille"
         app:layout_constraintBottom_toTopOf="@+id/numbers"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"></TextView>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_horizontal"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

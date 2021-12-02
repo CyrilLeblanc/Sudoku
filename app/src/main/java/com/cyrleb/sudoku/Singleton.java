@@ -1,6 +1,13 @@
 package com.cyrleb.sudoku;
 
+import android.text.format.Time;
+
 import com.cyrleb.sudoku.databinding.ActivityPageJeuBinding;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Singleton {
    private static Singleton instance = new Singleton();
@@ -8,10 +15,10 @@ public class Singleton {
    private String difficulty;
    private Grille grille;
    private ActivityPageJeuBinding mBinding;
+   private long startedGameAt;
 
    public Singleton(){
        this.selectedNumber = "";
-       this.difficulty = "";
    }
    static Singleton getInstance(){
        return instance;
@@ -27,6 +34,7 @@ public class Singleton {
    public void setDifficulty(String difficulty) {
        this.difficulty = difficulty;
        this.setGrille();
+       startedGameAt = Calendar.getInstance().getTimeInMillis();
    }
 
    // set in instance the mBinding for PageJeu
@@ -36,7 +44,9 @@ public class Singleton {
 
    public void controlFinishedGame(){
        if (grille.isTermine()){
-           mBinding.finishLabel.setText("Bravo ! Vous avez gagné");
+           Date date  = new Date(Calendar.getInstance().getTimeInMillis()-this.startedGameAt-3600*1000);
+           String str = new SimpleDateFormat("mm").format(date) + "m " + new SimpleDateFormat("ss").format(date) + "s";
+           mBinding.finishLabel.setText("Bravo ! Vous avez gagné en " + str);
        } else {
            mBinding.finishLabel.setText("");
        }
