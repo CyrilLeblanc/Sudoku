@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
         View v = mBinding.getRoot();
-
         // FACILE
         mBinding.facile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startGame("facile");
+                Singleton.getInstance().setDifficulty("facile");
             }
         });
 
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startGame("moyen");
+                Singleton.getInstance().setDifficulty("moyen");
             }
         });
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startGame("difficile");
+                Singleton.getInstance().setDifficulty("difficile");
             }
         });
 
