@@ -1,10 +1,13 @@
 package com.cyrleb.sudoku;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +44,16 @@ public class PageJeu extends AppCompatActivity {
         mBinding.grille.setAdapter(gAdapter);
         gAdapter.FillArray();
 
+        setFragment();
         setContentView(v);
     }
+    public void setFragment(){
+        mBinding.infoJoueur.removeAllViews();
+        Fragment fragment = new PlayerInfoFragment();
+        FragmentTransaction fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+        fragmentTransaction.add(mBinding.infoJoueur.getId(), fragment);
+        fragmentTransaction.commitAllowingStateLoss();
+    }
+
 }

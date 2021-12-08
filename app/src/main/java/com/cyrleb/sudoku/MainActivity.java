@@ -1,13 +1,18 @@
 package com.cyrleb.sudoku;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.cyrleb.sudoku.databinding.ActivityMainBinding;
-import com.cyrleb.sudoku.databinding.ActivityPageJeuBinding;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // DIFICILE
+        // DIFFICILE
         mBinding.difficile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        setFragment();
         setContentView(v);
     }
 
@@ -54,4 +60,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setFragment(){
+        mBinding.infoJoueur.removeAllViews();
+        Fragment fragment = new PlayerInfoFragment();
+        FragmentTransaction fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+        fragmentTransaction.add(mBinding.infoJoueur.getId(), fragment);
+        fragmentTransaction.commitAllowingStateLoss();
+    }
 }

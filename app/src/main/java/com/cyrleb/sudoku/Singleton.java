@@ -1,13 +1,17 @@
 package com.cyrleb.sudoku;
 
-import android.text.format.Time;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.widget.Button;
 
 import com.cyrleb.sudoku.databinding.ActivityPageJeuBinding;
+import com.cyrleb.sudoku.databinding.ItemNumberBinding;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Singleton {
    private static Singleton instance = new Singleton();
@@ -16,12 +20,28 @@ public class Singleton {
    private Grille grille;
    private ActivityPageJeuBinding mBinding;
    private long startedGameAt;
+   private User user;
+   public List<Button> numberButtons= new ArrayList<Button>();
 
    public Singleton(){
        this.selectedNumber = "";
+       this.user = new User("Player1", null);
    }
+
    static Singleton getInstance(){
        return instance;
+   }
+
+   public User getUser(){
+       return this.user;
+   }
+
+   public void setUserImage(Bitmap bitmap){
+       this.user.setAvatar(bitmap);
+   }
+
+   public void setUserName(String name){
+       this.user.setName(name);
    }
 
    public String getSelectedNumber() {
@@ -69,23 +89,23 @@ public class Singleton {
        switch(this.difficulty){
            case "facile":
                cases11 = new Case[][]{
-                       {new Case("3"), new Case("9"), new Case("1")},
+                       {new Case("3"), new Case(), new Case("1")},
                        {new Case("4"), new Case("8"), new Case("7")},
                        {new Case("6"), new Case("5"), new Case("2")}};
 
                cases12 = new Case[][]{
                        {new Case("2"), new Case("8"), new Case("6")},
-                       {new Case("3"), new Case("5"), new Case("9")},
+                       {new Case("3"), new Case(), new Case("9")},
                        {new Case("7"), new Case("1"), new Case("4")}};
 
                cases13 = new Case[][]{
                        {new Case("5"), new Case("7"), new Case("4")},
-                       {new Case("1"), new Case("2"), new Case("6")},
+                       {new Case("1"), new Case("2"), new Case()},
                        {new Case("8"), new Case("3"), new Case("9")}};
                // -----
                cases21 = new Case[][]{
                        {new Case("8"), new Case("7"), new Case("5")},
-                       {new Case("2"), new Case("1"), new Case("3")},
+                       {new Case(), new Case("1"), new Case("3")},
                        {new Case("9"), new Case("6"), new Case("4")}};
 
                cases22 = new Case[][]{
@@ -161,49 +181,49 @@ public class Singleton {
                break;
            case "difficile":
                cases11 = new Case[][]{
-                       {new Case(), new Case(), new Case("8")},
-                       {new Case("6"), new Case(), new Case("3")},
-                       {new Case(), new Case("1"), new Case()}};
+                       {new Case("3"), new Case(), new Case()},
+                       {new Case(), new Case("7"), new Case()},
+                       {new Case(), new Case(), new Case()}};
 
                cases12 = new Case[][]{
-                       {new Case("4"), new Case(), new Case()},
-                       {new Case("9"), new Case("2"), new Case()},
-                       {new Case("5"), new Case(), new Case("8")}};
+                       {new Case("8"), new Case(), new Case("5")},
+                       {new Case(), new Case("2"), new Case("3")},
+                       {new Case(), new Case("7"), new Case()}};
 
                cases13 = new Case[][]{
-                       {new Case(), new Case("3"), new Case()},
-                       {new Case(), new Case("1"), new Case()},
-                       {new Case("7"), new Case(), new Case("4")}};
+                       {new Case(), new Case(), new Case("2")},
+                       {new Case(), new Case(), new Case()},
+                       {new Case(), new Case(), new Case("3")}};
                // -----
                cases21 = new Case[][]{
-                       {new Case("8"), new Case(), new Case()},
-                       {new Case("2"), new Case("3"), new Case()},
-                       {new Case("1"), new Case(), new Case()}};
+                       {new Case(), new Case(), new Case("9")},
+                       {new Case(), new Case(), new Case("2")},
+                       {new Case(), new Case("1"), new Case("6")}};
 
                cases22 = new Case[][]{
-                       {new Case(), new Case(), new Case("4")},
+                       {new Case("7"), new Case(), new Case()},
                        {new Case(), new Case(), new Case()},
-                       {new Case("6"), new Case(), new Case()}};
+                       {new Case(), new Case(), new Case("2")}};
 
                cases23 = new Case[][]{
-                       {new Case(), new Case(), new Case("1")},
-                       {new Case(), new Case("7"), new Case("5")},
-                       {new Case(), new Case(), new Case("3")}};
+                       {new Case("5"), new Case("2"), new Case()},
+                       {new Case("8"), new Case(), new Case()},
+                       {new Case("3"), new Case(), new Case()}};
                // ----
                cases31 = new Case[][]{
-                       {new Case("7"), new Case("6"), new Case()},
-                       {new Case(), new Case("2"), new Case()},
-                       {new Case(), new Case("9"), new Case()}};
+                       {new Case("6"), new Case(), new Case()},
+                       {new Case(), new Case(), new Case()},
+                       {new Case("9"), new Case(), new Case()}};
 
                cases32 = new Case[][]{
-                       {new Case("1"), new Case(), new Case("3")},
-                       {new Case(), new Case("4"), new Case("9")},
-                       {new Case(), new Case(), new Case("5")}};
+                       {new Case(), new Case("4"), new Case()},
+                       {new Case("2"), new Case("9"), new Case()},
+                       {new Case("5"), new Case(), new Case("1")}};
 
                cases33 = new Case[][]{
-                       {new Case(), new Case("9"), new Case()},
-                       {new Case("1"), new Case(), new Case("6")},
-                       {new Case("3"), new Case(), new Case()}};
+                       {new Case(), new Case(), new Case()},
+                       {new Case(), new Case("4"), new Case()},
+                       {new Case(), new Case(), new Case("6")}};
                break;
 
        }
