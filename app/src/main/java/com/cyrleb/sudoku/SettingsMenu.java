@@ -38,22 +38,26 @@ public class SettingsMenu extends AppCompatActivity {
         mBinding = ActivitySettingsMenuBinding.inflate(getLayoutInflater());
         View v = mBinding.getRoot();
 
+        // on met le nom du joueur et son avatar
         mBinding.inputUsername.setText(Singleton.getInstance().getUser().getName());
-        mBinding.avatar.setImageBitmap(Singleton.getInstance().getUser().getAvatar());
-        this.avatarBitmap = Singleton.getInstance().getUser().getAvatar();
+        this.avatarBitmap = Singleton.getInstance().getUser().getAvatar();      // on récupère le bitmap de l'avatar du joueur dans le Singleton
+        mBinding.avatar.setImageBitmap(avatarBitmap);
 
+        // permet de sauvegarder les informations que le joueur aura donné
         mBinding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Singleton.getInstance().setUserImage(avatarBitmap);
                 Singleton.getInstance().setUserName(mBinding.inputUsername.getText().toString());
-                finish();
+                finish();   // permet de retourner sur la page précédente
             }
         });
 
+        // permet de changer l'avatar du joueur
         mBinding.avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // on ouvre la galerie
                 Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivityForResult(gallery, PICK_IMAGE);
             }
@@ -62,16 +66,13 @@ public class SettingsMenu extends AppCompatActivity {
         setContentView(v);
     }
 
-    private void openGallery() {
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
-    }
-
+    // permet de récupérer l'image que le joueur aura choisi dans la galerie
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 100 && resultCode == Activity.RESULT_OK) {
             try {
+                // on crée un bitmap avec l'image donnée
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
                 mBinding.avatar.setImageBitmap(bitmap);
                 this.avatarBitmap = bitmap;

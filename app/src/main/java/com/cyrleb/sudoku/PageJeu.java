@@ -47,6 +47,8 @@ public class PageJeu extends AppCompatActivity {
         setFragment();
         setContentView(v);
     }
+
+    // permet d'ajouter le fragment PlayerInfo
     public void setFragment(){
         mBinding.infoJoueur.removeAllViews();
         Fragment fragment = new PlayerInfoFragment();

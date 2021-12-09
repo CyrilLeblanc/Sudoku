@@ -11,6 +11,7 @@ public class Grille {
         this.grille = grille;
     }
 
+    // permet de savoir si il y a des duplications de numéro dans la ligne donnée
     public boolean withoutDuplicateInRow(int row){
         // récupérer les 3 sections
         Section[] sections = new Section[3];
@@ -38,6 +39,7 @@ public class Grille {
         return true;
     }
 
+    // permet de savoir si il y a des duplications de numéro dans la colonne donnée
     public boolean withoutDuplicateInCol(int col){
         // récupérer les 3 sections
         Section[] sections = new Section[3];
@@ -52,7 +54,7 @@ public class Grille {
             cases[i] = sections[i/3].getCol(col%3)[i%3];
         }
 
-        // vérifier les dupliqués
+        // vérifié les dupliqués
         for(int i = 0; i <= 7; i++){
             if (cases[i] != ""){
                 for(int j = i+1; j <= 8; j++){
@@ -66,8 +68,9 @@ public class Grille {
         return true;
     }
 
+    // permet de savoir si la grille est remplie et correcte
     public boolean isTermine(){
-        // pour chaque sections
+        // pour chaque section
         for(int i = 0; i <= 2; i++){
             for(int j= 0; j <= 2; j++){
                 if (!grille[i][j].finishSection()){
@@ -75,7 +78,7 @@ public class Grille {
                 }
             }
         }
-        // pour chaque lignes et colonnes
+        // pour chaque ligne et colonne
         for(int i = 0; i <= 8; i++){
             if (!this.withoutDuplicateInCol(i) || !this.withoutDuplicateInRow(i)){
                 return false;
@@ -85,6 +88,7 @@ public class Grille {
         return true;
     }
 
+    // permet d'avoir une section en fonction des coordonnées
     public Section getSection(int x, int y){
         return this.grille[x][y];
     }

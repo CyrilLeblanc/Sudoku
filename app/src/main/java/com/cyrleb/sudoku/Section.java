@@ -5,6 +5,9 @@ import android.util.Log;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Une Section est une série de 9 Case. (La grille est constituée de 9 Sections)
+ */
 public class Section {
     private Case[][] section;
 
@@ -17,6 +20,7 @@ public class Section {
         this.section[row][col].setValue(value);
     }
 
+    // permet de retourner une case dans la section
     public Case getCase(int x, int y){
         return this.section[x][y];
     }
@@ -54,7 +58,7 @@ public class Section {
         return true;
     }
 
-
+    // renvoie la ligne demandée
     public String[] getRow(int row){
         String[] tab = new String[3];
         tab[0] = section[row][0].getValue();
@@ -63,6 +67,7 @@ public class Section {
         return tab;
     }
 
+    // renvoie la colonne demandée
     public String[] getCol(int col){
         String[] tab = new String[3];
         tab[0] = section[0][col].getValue();

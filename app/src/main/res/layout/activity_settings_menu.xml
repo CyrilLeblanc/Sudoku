@@ -15,13 +15,14 @@
         app:layout_constraintBottom_toTopOf="@+id/inputUsername"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:rotation="90"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/labelUsername"
-        android:text="Username: "
+        android:text="@string/username"
         app:layout_constraintTop_toBottomOf="@+id/avatar"
         app:layout_constraintBottom_toTopOf="@+id/inputUsername"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,7 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintTop_toBottomOf="@+id/inputUsername"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,6 +1,7 @@
 package com.cyrleb.sudoku;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import java.util.List;
 public class AdapterNumbers extends RecyclerView.Adapter {
 
     private List<String> num = new ArrayList<>();
+    private List<Button> numberButtons = new ArrayList<Button>();
 
     public void FillArray() {
         this.num.add("1");
@@ -63,22 +65,20 @@ public class AdapterNumbers extends RecyclerView.Adapter {
         void bindTo(final String item, int position) {
             if (item != null) {
                 mBinding.button.setText(item);
-                Singleton.getInstance().numberButtons.add(mBinding.button);
+                numberButtons.add(mBinding.button);     // on stocke chaque bouton dans une List
 
                 mBinding.button.setOnClickListener(new View.OnClickListener() {
                     @SuppressLint("ResourceAsColor")
                     @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onClick(View v) {
-                        Singleton.getInstance().setSelectedNumber(item);
-                        Singleton.getInstance().numberButtons.forEach((Button button) -> {
-                            if (button != mBinding.button)
-                            {
-                                button.setBackgroundColor(R.color.purple_500);
-                                Log.wtf("wtf", button.toString());
+                        Singleton.getInstance().setSelectedNumber(item);        // le numéro sélectionné est celui sur lequel on a cliqué
+                        numberButtons.forEach((Button button) -> {  // on passe sur chaque bouton dans la List
+                            if (button != mBinding.button){         // si ce n'est pas celui sur lequel on a cliqué
+                                button.setBackgroundColor(v.getResources().getColor(R.color.orange));   // on remet la couleur par défaut
                             }
                         });
-                        mBinding.button.setBackgroundColor(R.color.black);
+                        mBinding.button.setBackgroundColor(v.getResources().getColor(R.color.orange_dark)); // on met la couleur d'un click
                     }
                 });
             }

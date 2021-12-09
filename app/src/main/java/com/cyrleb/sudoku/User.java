@@ -5,18 +5,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+/**
+ * User permet de stoquer les informations du joueur
+ */
 public class User {
     private String name;
     private Bitmap avatar;
 
     User(String name, Bitmap avatar){
         this.name = name;
-        if (avatar == null){
-            Log.wtf("wtf", "test");
-            this.avatar = BitmapFactory.decodeResource(null, R.drawable.toad);
-        } else {
-            this.avatar = avatar;
-        }
+        this.avatar = avatar;
     }
 
     public String getName() {

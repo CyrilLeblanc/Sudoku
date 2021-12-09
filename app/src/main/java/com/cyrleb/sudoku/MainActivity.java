@@ -1,6 +1,7 @@
 package com.cyrleb.sudoku;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         mBinding.facile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGame("facile");
                 Singleton.getInstance().setDifficulty("facile");
+                startGame();
             }
         });
 
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         mBinding.moyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGame("moyen");
                 Singleton.getInstance().setDifficulty("moyen");
+                startGame();
             }
         });
 
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         mBinding.difficile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGame("difficile");
                 Singleton.getInstance().setDifficulty("difficile");
+                startGame();
             }
         });
 
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(v);
     }
 
-    public void startGame(String difficulty){
+    // permet de commencer le jeu en allant à l'activité PageJeu
+    public void startGame(){
         Intent intent = new Intent(getApplicationContext(), PageJeu.class);
         startActivity(intent);
     }

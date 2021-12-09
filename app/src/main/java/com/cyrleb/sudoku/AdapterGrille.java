@@ -1,6 +1,7 @@
 package com.cyrleb.sudoku;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.util.Log;
 import android.util.TypedValue;
@@ -61,28 +62,33 @@ public class AdapterGrille extends RecyclerView.Adapter {
             mBinding = binding;
         }
 
+        @SuppressLint("ResourceAsColor")
         void bindTo(final String item, int position) {
             if (item != null) {
+                // on stocke toutes les cases dans un tableau pour agir sur chacune sans duplication de code
                 androidx.appcompat.widget.AppCompatButton[] cases = {mBinding.case1, mBinding.case2, mBinding.case3, mBinding.case4, mBinding.case5, mBinding.case6, mBinding.case7, mBinding.case8, mBinding.case9};
+
                 for (int i = 0; i < cases.length; i++) {
                     int finalI = i;
+
+                    // on récupère la case de la classe Case correspondant à la case
                     Case c = Singleton.getInstance().getGrille().getSection(position % 3, position / 3).getCase(finalI % 3, finalI / 3);
-                    if (c.getModifiable()){
+
+                    if (c.getModifiable()){         // si la case est modifiable
                         cases[i].setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(View v) {
-                                //Log.wtf("wtf", position + "/" + finalI);
-                                String value = Singleton.getInstance().getSelectedNumber();
+                            public void onClick(View v) {       // quand on clique
+                                String value = Singleton.getInstance().getSelectedNumber();     // on récupère la valeur du bouton
                                 if (value == "X") { value = ""; }
                                 cases[finalI].setText(value);
                                 c.setValue(value);
-                                Singleton.getInstance().controlFinishedGame();
+                                Singleton.getInstance().controlFinishedGame(v.getContext());    // on teste si la grille est bien remplie
                             }
                         });
-                    } else {
+                    } else { // si la case n'est pas modifiable on change la couleur du texte
                         cases[finalI].setTextColor(Color.GRAY);
                     }
-                    cases[i].setText(c.getValue());
+                    cases[i].setText(c.getValue());     // on attribue la valeur de la case
                 }
             }
         }

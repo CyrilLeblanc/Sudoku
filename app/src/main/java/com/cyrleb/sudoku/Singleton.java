@@ -1,5 +1,6 @@
 package com.cyrleb.sudoku;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.widget.Button;
@@ -15,13 +16,12 @@ import java.util.List;
 
 public class Singleton {
    private static Singleton instance = new Singleton();
-   private String selectedNumber;
-   private String difficulty;
+   private String selectedNumber;       // permet durant la partie de stocker le numéro sélectionné par le joueur
+   private String difficulty;           // permet de connaitre la difficulté choisie par le joueur
    private Grille grille;
-   private ActivityPageJeuBinding mBinding;
-   private long startedGameAt;
+   private ActivityPageJeuBinding mBinding;    // permet d'intéragir avec les éléments de l'activité ActivityPageJeu
+   private long startedGameAt;                 // permet de connaitre le timestamp du début de partie
    private User user;
-   public List<Button> numberButtons= new ArrayList<Button>();
 
    public Singleton(){
        this.selectedNumber = "";
@@ -44,6 +44,8 @@ public class Singleton {
        this.user.setName(name);
    }
 
+
+
    public String getSelectedNumber() {
        return selectedNumber;
    }
@@ -62,11 +64,11 @@ public class Singleton {
        this.mBinding = mBinding;
    }
 
-   public void controlFinishedGame(){
+   public void controlFinishedGame(Context context){
        if (grille.isTermine()){
            Date date  = new Date(Calendar.getInstance().getTimeInMillis()-this.startedGameAt-3600*1000);
-           String str = new SimpleDateFormat("mm").format(date) + "m " + new SimpleDateFormat("ss").format(date) + "s";
-           mBinding.finishLabel.setText("Bravo ! Vous avez gagné en " + str);
+           String str = " " + new SimpleDateFormat("mm").format(date) + "m " + new SimpleDateFormat("ss").format(date) + "s";
+           mBinding.finishLabel.setText(context.getResources().getString(R.string.congrats) + " " + user.getName() + context.getResources().getString(R.string.congrats2) + str);
        } else {
            mBinding.finishLabel.setText("");
        }

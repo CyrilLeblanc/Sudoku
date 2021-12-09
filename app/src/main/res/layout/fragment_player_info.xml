@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     tools:context=".PlayerInfoFragment"
     android:id="@+id/fragment"
-    android:background="@color/purple_700">
+    android:background="@color/orange_dark">
 
     <ImageView
         android:layout_width="75dp"
@@ -14,7 +14,8 @@
         android:id="@+id/avatar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/toad" />
+        android:src="@drawable/toad"
+        android:rotation="90"/>
 
     <TextView
         android:id="@+id/username"
@@ -22,6 +23,10 @@
         android:layout_height="wrap_content"
         android:text="username"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/avatar" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        android:paddingStart="20dp"
+        android:textSize="30dp"
+        android:paddingLeft="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

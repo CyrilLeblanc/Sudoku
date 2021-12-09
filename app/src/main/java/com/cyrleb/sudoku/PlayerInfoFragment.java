@@ -1,11 +1,14 @@
 package com.cyrleb.sudoku;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -22,9 +25,11 @@ public class PlayerInfoFragment extends Fragment {
         mBinding = FragmentPlayerInfoBinding.inflate(inflater);
         View v = mBinding.getRoot();
 
+        // on affiche l'avatar et le nom du joueur
         mBinding.username.setText(Singleton.getInstance().getUser().getName());
         mBinding.avatar.setImageBitmap(Singleton.getInstance().getUser().getAvatar());
 
+        // quand on clique sur le fragment alors on va sur l'activité SettingsMenu
         mBinding.fragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +41,9 @@ public class PlayerInfoFragment extends Fragment {
         return v ;
     }
 
+
+    // on met à jour l'avatar et le nom du joueur quand on retourne sur la page courrante
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onResume() {
         super.onResume();
