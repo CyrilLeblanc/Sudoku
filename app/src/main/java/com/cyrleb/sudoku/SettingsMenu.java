@@ -1,30 +1,17 @@
 package com.cyrleb.sudoku;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.provider.SyncStateContract;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterViewAnimator;
-import android.widget.ImageView;
 
-import com.cyrleb.sudoku.Singleton;
 import com.cyrleb.sudoku.databinding.ActivitySettingsMenuBinding;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Activité de la page SettingsMenu
@@ -71,9 +58,9 @@ public class SettingsMenu extends AppCompatActivity {
 
     /**
      * permet de récupérer l'image que le joueur aura choisi dans la galerie
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     * @param requestCode int
+     * @param resultCode int
+     * @param data Intent
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){

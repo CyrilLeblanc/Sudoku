@@ -2,32 +2,27 @@ package com.cyrleb.sudoku;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.widget.Button;
 
 import com.cyrleb.sudoku.databinding.ActivityPageJeuBinding;
-import com.cyrleb.sudoku.databinding.ItemNumberBinding;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Singleton accessible partout dans l'application
  */
 public class Singleton {
-   private static Singleton instance = new Singleton();
-   private String difficulty;           // permet de connaitre la difficulté choisie par le joueur
+   private final static Singleton instance = new Singleton();
+   private String difficulty;                   // permet de connaitre la difficulté choisie par le joueur
    private Grille grille;
-   private ActivityPageJeuBinding mBinding;    // permet d'intéragir avec les éléments de l'activité ActivityPageJeu
-   private long startedGameAt;                 // permet de connaitre le timestamp du début de partie
-   private User user = new User("Player1", null);
+   private ActivityPageJeuBinding mBinding;     // permet d'intéragir avec les éléments de l'activité ActivityPageJeu
+   private long startedGameAt;                  // permet de connaitre le timestamp du début de partie
+   private final User user = new User("Player1", null);
 
     /**
      * Renvoi le Singleton
-     * @return
+     * @return Singleton
      */
    static Singleton getInstance(){
        return instance;
@@ -35,7 +30,7 @@ public class Singleton {
 
     /**
      * Renvoi le User
-     * @return
+     * @return User
      */
    public User getUser(){
        return this.user;
@@ -43,7 +38,7 @@ public class Singleton {
 
    /**
      * permet de mettre en place le bitmap de User
-     * @param bitmap
+     * @param bitmap Bitmap
      */
    public void setUserImage(Bitmap bitmap){
        this.user.setAvatar(bitmap);
@@ -51,7 +46,7 @@ public class Singleton {
 
     /**
      * permet de changer le username du user
-     * @param name
+     * @param name String
      */
    public void setUserName(String name){
        this.user.setName(name);
@@ -59,7 +54,7 @@ public class Singleton {
 
     /**
      * permet de changer la difficulté de la grille
-     * @param difficulty
+     * @param difficulty String
      */
    public void setDifficulty(String difficulty) {
        this.difficulty = difficulty;
@@ -69,7 +64,7 @@ public class Singleton {
 
     /**
      * Permet de récupérer le mBinding de la page jeu
-     * @param mBinding
+     * @param mBinding ActivityPageJeuBinding
      */
    public void bindingPageJeu(ActivityPageJeuBinding mBinding){
        this.mBinding = mBinding;
@@ -77,7 +72,7 @@ public class Singleton {
 
     /**
      * Teste si la partie est terminé
-     * @param context
+     * @param context Context
      */
    public void controlFinishedGame(Context context){
        if (grille.isTermine()){
@@ -93,7 +88,7 @@ public class Singleton {
 
     /**
      * renvoie la grille
-     * @return
+     * @return Grille
      */
    public Grille getGrille() {
        return grille;

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Ajout des gestions des élements sur la page
-     * @param savedInstanceState
+     * @param savedInstanceState Bundle
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

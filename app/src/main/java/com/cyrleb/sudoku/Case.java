@@ -6,11 +6,11 @@ package com.cyrleb.sudoku;
 public class Case {
 
     private String value;
-    private boolean modifiable;     // si la case n'est pas modifiable alors elle fait partie des numéros données au début du jeu
+    private final boolean modifiable;     // si la case n'est pas modifiable alors elle fait partie des numéros données au début du jeu
 
     /**
      * Constructeur permettant de préciser la valeur non modifiable
-     * @param value
+     * @param value String
      */
     public Case(String value){
         this.value = value;
@@ -27,7 +27,7 @@ public class Case {
 
     /**
      * Renvoi la valeur de la case courrante
-     * @return
+     * @return String
      */
     public String getValue(){
         return this.value;

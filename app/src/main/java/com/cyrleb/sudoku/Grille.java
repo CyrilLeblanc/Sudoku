@@ -1,20 +1,16 @@
 package com.cyrleb.sudoku;
 
-import android.util.Log;
-
-import java.util.List;
-
 public class Grille {
 
-    private Section[][] grille;
+    private final Section[][] grille;
     public Grille(Section[][] grille){
         this.grille = grille;
     }
 
     /**
      * permet de savoir si il y a des duplications de numéro dans la ligne donnée
-     * @param row
-     * @return
+     * @param row int
+     * @return boolean
      */
     private boolean withoutDuplicateInRow(int row){
         // récupérer les 3 sections
@@ -32,9 +28,9 @@ public class Grille {
 
         // vérifier les dupliqués
         for(int i = 0; i <= 7; i++){
-            if (cases[i] != ""){
+            if (!cases[i].equals("")){
                 for(int j = i+1; j <= 8; j++){
-                    if (cases[i] == cases[j]){
+                    if (cases[i].equals(cases[j])){
                         return false;
                     }
                 }
@@ -45,8 +41,8 @@ public class Grille {
 
     /**
      * permet de savoir si il y a des duplications de numéro dans la colonne donnée
-     * @param col
-     * @return
+     * @param col int
+     * @return boolean
      */
     private boolean withoutDuplicateInCol(int col){
         // récupérer les 3 sections
@@ -64,9 +60,9 @@ public class Grille {
 
         // vérifié les dupliqués
         for(int i = 0; i <= 7; i++){
-            if (cases[i] != ""){
+            if (!cases[i].equals("")){
                 for(int j = i+1; j <= 8; j++){
-                    if (cases[i] == cases[j]){
+                    if (cases[i].equals(cases[j])){
                         return false;
                     }
                 }
@@ -78,7 +74,7 @@ public class Grille {
 
     /**
      * permet de savoir si la grille est remplie et correcte
-     * @return
+     * @return boolean
      */
     public boolean isTermine(){
         // pour chaque section
@@ -101,9 +97,9 @@ public class Grille {
 
     /**
      * permet d'avoir une section en fonction des coordonnées
-     * @param x
-     * @param y
-     * @return
+     * @param x int
+     * @param y int
+     * @return Section
      */
     public Section getSection(int x, int y){
         return this.grille[x][y];
@@ -134,5 +130,4 @@ public class Grille {
         }
         return str;
     }
-
 }

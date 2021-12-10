@@ -2,7 +2,6 @@ package com.cyrleb.sudoku;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +21,9 @@ import java.util.List;
  */
 public class AdapterNumbers extends RecyclerView.Adapter{
 
-    private List<String> num = new ArrayList<>();
-    private List<Button> numberButtons = new ArrayList<Button>();
-    private SelectedNumber selectedNumberInterface;
+    private final List<String> num = new ArrayList<>();
+    private final List<Button> numberButtons = new ArrayList<>();
+    private final SelectedNumber selectedNumberInterface;
 
     public AdapterNumbers(SelectedNumber selectedNumber){
         this.selectedNumberInterface = selectedNumber;
@@ -53,7 +52,7 @@ public class AdapterNumbers extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((ItemViewHolder)holder).bindTo(num.get(position), position);
+        ((ItemViewHolder)holder).bindTo(num.get(position));
     }
 
     @Override
@@ -69,7 +68,7 @@ public class AdapterNumbers extends RecyclerView.Adapter{
             mBinding = binding;
         }
 
-        void bindTo(final String item, int position) {
+        void bindTo(final String item) {
             if (item != null) {
                 mBinding.button.setText(item);
                 numberButtons.add(mBinding.button);     // on stocke chaque bouton dans une List

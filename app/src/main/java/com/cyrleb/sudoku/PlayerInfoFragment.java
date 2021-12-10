@@ -19,10 +19,10 @@ public class PlayerInfoFragment extends Fragment {
 
     /**
      * Met à jour les informations contenu dans la page courrante
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
+     * @param inflater LayoutInflater
+     * @param container ViewGroup
+     * @param savedInstanceState Bundle
+     * @return View
      */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentPlayerInfoBinding.inflate(inflater);

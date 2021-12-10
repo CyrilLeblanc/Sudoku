@@ -3,21 +3,16 @@ package com.cyrleb.sudoku;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cyrleb.sudoku.databinding.ItemGrilleBinding;
-import com.cyrleb.sudoku.databinding.ItemNumberBinding;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
 
 /**
@@ -25,7 +20,7 @@ import java.util.List;
  */
 public class AdapterGrille extends RecyclerView.Adapter {
 
-    private List<String> num = new ArrayList<>();
+    private final List<String> num = new ArrayList<>();
     public String selectedNumber = "";
 
     public void FillArray() {
@@ -60,7 +55,6 @@ public class AdapterGrille extends RecyclerView.Adapter {
 
     public void setNumber(String value) {
         this.selectedNumber = value;
-        Log.wtf("wtf", "from AdapterGrille\t" + selectedNumber);
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder{
@@ -73,8 +67,8 @@ public class AdapterGrille extends RecyclerView.Adapter {
 
         /**
          * ajoute la gestion du click sur chaque case de la grille
-         * @param item
-         * @param position
+         * @param item String
+         * @param position  int
          */
         @SuppressLint("ResourceAsColor")
         void bindTo(final String item, int position) {
@@ -94,7 +88,7 @@ public class AdapterGrille extends RecyclerView.Adapter {
                             public void onClick(View v) {       // quand on clique
                                 //String value = Singleton.getInstance().getSelectedNumber();
                                 String value = selectedNumber;      // on récupère la valeur du bouton depuis l'interface
-                                if (value == "X") { value = ""; }
+                                if (value.equals("X")) { value = ""; }
                                 cases[finalI].setText(value);
                                 c.setValue(value);
                                 Singleton.getInstance().controlFinishedGame(v.getContext());    // on teste si la grille est bien remplie

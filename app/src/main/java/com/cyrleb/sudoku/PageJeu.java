@@ -4,24 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.app.ActionBar;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.GridLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.cyrleb.sudoku.AdapterGrille;
-import com.cyrleb.sudoku.AdapterNumbers;
-import com.cyrleb.sudoku.PlayerInfoFragment;
-import com.cyrleb.sudoku.SelectedNumber;
-import com.cyrleb.sudoku.Singleton;
-import com.cyrleb.sudoku.databinding.ActivityMainBinding;
 import com.cyrleb.sudoku.databinding.ActivityPageJeuBinding;
 
 public class PageJeu extends AppCompatActivity implements SelectedNumber {
@@ -68,7 +55,7 @@ public class PageJeu extends AppCompatActivity implements SelectedNumber {
 
     /**
      * permet de faire passer l'information du changement de numéro à la grille
-     * @param value
+     * @param value String
      */
     @Override
     public void setNumber(String value) {

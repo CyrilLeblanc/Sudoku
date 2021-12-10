@@ -10,8 +10,8 @@ public class User {
 
     /**
      * Constructeur initialisant le name et l'avatar suivant les paramètre donnée
-     * @param name
-     * @param avatar
+     * @param name String
+     * @param avatar Bitmap
      */
     User(String name, Bitmap avatar){
         this.name = name;
@@ -20,7 +20,7 @@ public class User {
 
     /**
      * renvoie le name
-     * @return
+     * @return String
      */
     public String getName() {
         return name;
@@ -28,7 +28,7 @@ public class User {
 
     /**
      * renvoie l'avatar
-     * @return
+     * @return Bitmap
      */
     public Bitmap getAvatar() {
         return avatar;
@@ -36,7 +36,7 @@ public class User {
 
     /**
      * set le name
-     * @param name
+     * @param name String
      */
     public void setName(String name) {
         this.name = name;
@@ -44,7 +44,7 @@ public class User {
 
     /**
      * set l'avatar
-     * @param avatar
+     * @param avatar Bitmap
      */
     public void setAvatar(Bitmap avatar) {
         this.avatar = avatar;
