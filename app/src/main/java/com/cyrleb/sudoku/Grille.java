@@ -11,8 +11,12 @@ public class Grille {
         this.grille = grille;
     }
 
-    // permet de savoir si il y a des duplications de numéro dans la ligne donnée
-    public boolean withoutDuplicateInRow(int row){
+    /**
+     * permet de savoir si il y a des duplications de numéro dans la ligne donnée
+     * @param row
+     * @return
+     */
+    private boolean withoutDuplicateInRow(int row){
         // récupérer les 3 sections
         Section[] sections = new Section[3];
         sections[0] = grille[row/3][0];
@@ -39,8 +43,12 @@ public class Grille {
         return true;
     }
 
-    // permet de savoir si il y a des duplications de numéro dans la colonne donnée
-    public boolean withoutDuplicateInCol(int col){
+    /**
+     * permet de savoir si il y a des duplications de numéro dans la colonne donnée
+     * @param col
+     * @return
+     */
+    private boolean withoutDuplicateInCol(int col){
         // récupérer les 3 sections
         Section[] sections = new Section[3];
         sections[0] = grille[0][col/3];
@@ -68,7 +76,10 @@ public class Grille {
         return true;
     }
 
-    // permet de savoir si la grille est remplie et correcte
+    /**
+     * permet de savoir si la grille est remplie et correcte
+     * @return
+     */
     public boolean isTermine(){
         // pour chaque section
         for(int i = 0; i <= 2; i++){
@@ -88,9 +99,30 @@ public class Grille {
         return true;
     }
 
-    // permet d'avoir une section en fonction des coordonnées
+    /**
+     * permet d'avoir une section en fonction des coordonnées
+     * @param x
+     * @param y
+     * @return
+     */
     public Section getSection(int x, int y){
         return this.grille[x][y];
+    }
+
+    /**
+     * Permet de savoir si la grille est remplie (sans pour autant être juste)
+     * @return boolean
+     */
+    public boolean isRemplie(){
+        boolean value = true;
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if (!grille[i][j].isRemplie()){
+                    value = false;
+                }
+            }
+        }
+        return value;
     }
 
     public String toString(){
@@ -101,19 +133,6 @@ public class Grille {
             }
         }
         return str;
-    }
-
-    public boolean isRempli(){
-
-        boolean value = true;
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                if (!grille[i][j].isRempli()){
-                    value = false;
-                }
-            }
-        }
-        return value;
     }
 
 }

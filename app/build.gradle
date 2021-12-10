@@ -7,7 +7,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    buildToolsVersion "30.0.0"
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.cyrleb.sudoku"

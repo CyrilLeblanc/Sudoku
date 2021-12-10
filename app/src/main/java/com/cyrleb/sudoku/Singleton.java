@@ -14,62 +14,94 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Singleton accessible partout dans l'application
+ */
 public class Singleton {
    private static Singleton instance = new Singleton();
    private String difficulty;           // permet de connaitre la difficulté choisie par le joueur
    private Grille grille;
    private ActivityPageJeuBinding mBinding;    // permet d'intéragir avec les éléments de l'activité ActivityPageJeu
    private long startedGameAt;                 // permet de connaitre le timestamp du début de partie
-   private User user;
+   private User user = new User("Player1", null);
 
-   public Singleton(){
-       this.user = new User("Player1", null);
-   }
-
+    /**
+     * Renvoi le Singleton
+     * @return
+     */
    static Singleton getInstance(){
        return instance;
    }
 
+    /**
+     * Renvoi le User
+     * @return
+     */
    public User getUser(){
        return this.user;
    }
 
+   /**
+     * permet de mettre en place le bitmap de User
+     * @param bitmap
+     */
    public void setUserImage(Bitmap bitmap){
        this.user.setAvatar(bitmap);
    }
 
+    /**
+     * permet de changer le username du user
+     * @param name
+     */
    public void setUserName(String name){
        this.user.setName(name);
    }
 
+    /**
+     * permet de changer la difficulté de la grille
+     * @param difficulty
+     */
    public void setDifficulty(String difficulty) {
        this.difficulty = difficulty;
        this.setGrille();
        startedGameAt = Calendar.getInstance().getTimeInMillis();
    }
 
-   // set in instance the mBinding for PageJeu
+    /**
+     * Permet de récupérer le mBinding de la page jeu
+     * @param mBinding
+     */
    public void bindingPageJeu(ActivityPageJeuBinding mBinding){
        this.mBinding = mBinding;
    }
 
+    /**
+     * Teste si la partie est terminé
+     * @param context
+     */
    public void controlFinishedGame(Context context){
        if (grille.isTermine()){
            Date date  = new Date(Calendar.getInstance().getTimeInMillis()-this.startedGameAt-3600*1000);
            String str = " " + new SimpleDateFormat("mm").format(date) + "m " + new SimpleDateFormat("ss").format(date) + "s";
            mBinding.finishLabel.setText(context.getResources().getString(R.string.congrats) + " " + user.getName() + context.getResources().getString(R.string.congrats2) + str);
-       } else if (grille.isRempli()){
+       } else if (grille.isRemplie()){
            mBinding.finishLabel.setText(context.getResources().getString(R.string.notFinished));
        } else {
            mBinding.finishLabel.setText("");
        }
    }
 
+    /**
+     * renvoie la grille
+     * @return
+     */
    public Grille getGrille() {
        return grille;
    }
 
-   // génération de la grille en fonction du niveau de difficulté choisi par le joueur
+    /**
+     * génération de la grille en fonction du niveau de difficulté choisi par le joueur
+     */
    private void setGrille() {
        Case[][] cases11 = {{}};
        Case[][] cases12 = {{}};

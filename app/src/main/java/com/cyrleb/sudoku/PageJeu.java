@@ -16,10 +16,15 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cyrleb.sudoku.AdapterGrille;
+import com.cyrleb.sudoku.AdapterNumbers;
+import com.cyrleb.sudoku.PlayerInfoFragment;
+import com.cyrleb.sudoku.SelectedNumber;
+import com.cyrleb.sudoku.Singleton;
 import com.cyrleb.sudoku.databinding.ActivityMainBinding;
 import com.cyrleb.sudoku.databinding.ActivityPageJeuBinding;
 
-public class PageJeu extends AppCompatActivity implements SelectedNumber{
+public class PageJeu extends AppCompatActivity implements SelectedNumber {
 
     private ActivityPageJeuBinding mBinding;
     private AdapterNumbers nAdapter;

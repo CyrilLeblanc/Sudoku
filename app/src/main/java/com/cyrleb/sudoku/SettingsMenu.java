@@ -19,18 +19,21 @@ import android.view.View;
 import android.widget.AdapterViewAnimator;
 import android.widget.ImageView;
 
+import com.cyrleb.sudoku.Singleton;
 import com.cyrleb.sudoku.databinding.ActivitySettingsMenuBinding;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Activité de la page SettingsMenu
+ */
 public class SettingsMenu extends AppCompatActivity {
 
     private ActivitySettingsMenuBinding mBinding;
     private static final int PICK_IMAGE = 100;
     private Bitmap avatarBitmap = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +69,12 @@ public class SettingsMenu extends AppCompatActivity {
         setContentView(v);
     }
 
-    // permet de récupérer l'image que le joueur aura choisi dans la galerie
+    /**
+     * permet de récupérer l'image que le joueur aura choisi dans la galerie
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);

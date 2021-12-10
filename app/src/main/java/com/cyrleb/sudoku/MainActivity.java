@@ -1,24 +1,26 @@
 package com.cyrleb.sudoku;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.cyrleb.sudoku.databinding.ActivityMainBinding;
 
-import java.io.IOException;
-import java.io.InputStream;
-
+/**
+ * Activité de la page d'accueil de l'application
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding mBinding;
 
+    /**
+     * Ajout des gestions des élements sur la page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +58,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(v);
     }
 
-    // permet de commencer le jeu en allant à l'activité PageJeu
+    /**
+     * Permet d'aller directement à l'activité PageJeu
+     */
     public void startGame(){
         Intent intent = new Intent(getApplicationContext(), PageJeu.class);
         startActivity(intent);
     }
 
+    /**
+     * Ajoute le fragment PlayerInfo à la page
+     */
     public void setFragment(){
         mBinding.infoJoueur.removeAllViews();
         Fragment fragment = new PlayerInfoFragment();

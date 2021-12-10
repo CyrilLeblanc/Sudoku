@@ -17,6 +17,9 @@ import com.cyrleb.sudoku.databinding.ItemNumberBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * RecyclerView affichant les boutons de sélection de numéro en bas de page
+ */
 public class AdapterNumbers extends RecyclerView.Adapter{
 
     private List<String> num = new ArrayList<>();

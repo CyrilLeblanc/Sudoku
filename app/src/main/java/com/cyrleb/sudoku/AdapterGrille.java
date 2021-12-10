@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+/**
+ * RecyclerView affichant les 9 sections de la grille
+ */
 public class AdapterGrille extends RecyclerView.Adapter {
 
     private List<String> num = new ArrayList<>();
@@ -68,6 +71,11 @@ public class AdapterGrille extends RecyclerView.Adapter {
             mBinding = binding;
         }
 
+        /**
+         * ajoute la gestion du click sur chaque case de la grille
+         * @param item
+         * @param position
+         */
         @SuppressLint("ResourceAsColor")
         void bindTo(final String item, int position) {
             if (item != null) {
