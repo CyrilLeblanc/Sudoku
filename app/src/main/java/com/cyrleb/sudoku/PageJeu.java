@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.cyrleb.sudoku.databinding.ActivityMainBinding;
 import com.cyrleb.sudoku.databinding.ActivityPageJeuBinding;
 
-public class PageJeu extends AppCompatActivity {
+public class PageJeu extends AppCompatActivity implements SelectedNumber{
 
     private ActivityPageJeuBinding mBinding;
     private AdapterNumbers nAdapter;
@@ -33,7 +33,7 @@ public class PageJeu extends AppCompatActivity {
         View v = mBinding.getRoot();
 
         // NUMBER INPUT
-        nAdapter = new AdapterNumbers();
+        nAdapter = new AdapterNumbers(this);
         mBinding.numbers.setLayoutManager(new GridLayoutManager(this, 10));
         mBinding.numbers.setAdapter(nAdapter);
         nAdapter.FillArray();
@@ -48,7 +48,9 @@ public class PageJeu extends AppCompatActivity {
         setContentView(v);
     }
 
-    // permet d'ajouter le fragment PlayerInfo
+    /**
+     * permet d'ajouter le fragment PlayerInfo
+     */
     public void setFragment(){
         mBinding.infoJoueur.removeAllViews();
         Fragment fragment = new PlayerInfoFragment();
@@ -58,4 +60,14 @@ public class PageJeu extends AppCompatActivity {
         fragmentTransaction.commitAllowingStateLoss();
     }
 
+
+    /**
+     * permet de faire passer l'information du changement de numéro à la grille
+     * @param value
+     */
+    @Override
+    public void setNumber(String value) {
+        Log.wtf("wtf", "from PageJeu\t" + value);
+        gAdapter.setNumber(value);
+    }
 }

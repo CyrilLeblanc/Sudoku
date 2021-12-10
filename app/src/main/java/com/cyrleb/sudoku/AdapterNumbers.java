@@ -1,7 +1,6 @@
 package com.cyrleb.sudoku;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,10 +17,15 @@ import com.cyrleb.sudoku.databinding.ItemNumberBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterNumbers extends RecyclerView.Adapter {
+public class AdapterNumbers extends RecyclerView.Adapter{
 
     private List<String> num = new ArrayList<>();
     private List<Button> numberButtons = new ArrayList<Button>();
+    private SelectedNumber selectedNumberInterface;
+
+    public AdapterNumbers(SelectedNumber selectedNumber){
+        this.selectedNumberInterface = selectedNumber;
+    }
 
     public void FillArray() {
         this.num.add("1");
@@ -72,7 +76,7 @@ public class AdapterNumbers extends RecyclerView.Adapter {
                     @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onClick(View v) {
-                        Singleton.getInstance().setSelectedNumber(item);        // le numéro sélectionné est celui sur lequel on a cliqué
+                        selectedNumberInterface.setNumber(item);    // le numéro sélectionné est celui sur lequel on a cliqué (via l'interface)
                         numberButtons.forEach((Button button) -> {  // on passe sur chaque bouton dans la List
                             if (button != mBinding.button){         // si ce n'est pas celui sur lequel on a cliqué
                                 button.setBackgroundColor(v.getResources().getColor(R.color.orange));   // on remet la couleur par défaut

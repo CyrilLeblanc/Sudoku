@@ -23,6 +23,7 @@ import java.util.List;
 public class AdapterGrille extends RecyclerView.Adapter {
 
     private List<String> num = new ArrayList<>();
+    public String selectedNumber = "";
 
     public void FillArray() {
         this.num.add("1");
@@ -54,7 +55,12 @@ public class AdapterGrille extends RecyclerView.Adapter {
         return num.size();
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    public void setNumber(String value) {
+        this.selectedNumber = value;
+        Log.wtf("wtf", "from AdapterGrille\t" + selectedNumber);
+    }
+
+    class ItemViewHolder extends RecyclerView.ViewHolder{
         public ItemGrilleBinding mBinding;
 
         ItemViewHolder(ItemGrilleBinding binding) {
@@ -78,7 +84,8 @@ public class AdapterGrille extends RecyclerView.Adapter {
                         cases[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {       // quand on clique
-                                String value = Singleton.getInstance().getSelectedNumber();     // on récupère la valeur du bouton
+                                //String value = Singleton.getInstance().getSelectedNumber();
+                                String value = selectedNumber;      // on récupère la valeur du bouton depuis l'interface
                                 if (value == "X") { value = ""; }
                                 cases[finalI].setText(value);
                                 c.setValue(value);
