@@ -1,20 +1,17 @@
 package com.cyrleb.sudoku;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import android.annotation.SuppressLint;
+import androidx.recyclerview.widget.RecyclerView;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.cyrleb.sudoku.databinding.ItemNumberBinding;
-
 import java.util.ArrayList;
 import java.util.List;
+import com.cyrleb.sudoku.databinding.ItemNumberBinding;
 
 /**
  * RecyclerView affichant les boutons de sélection de numéro en bas de page

@@ -1,19 +1,15 @@
 package com.cyrleb.sudoku;
 
-
+import androidx.annotation.NonNull;
 import android.annotation.SuppressLint;
-import android.graphics.Color;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.cyrleb.sudoku.databinding.ItemGrilleBinding;
-
+import android.graphics.Color;
 import java.util.ArrayList;
 import java.util.List;
+import com.cyrleb.sudoku.databinding.ItemGrilleBinding;
 
 /**
  * RecyclerView affichant les 9 sections de la grille
