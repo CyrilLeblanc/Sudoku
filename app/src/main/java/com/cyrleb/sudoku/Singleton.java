@@ -16,7 +16,6 @@ import java.util.List;
 
 public class Singleton {
    private static Singleton instance = new Singleton();
-   private String selectedNumber;       // permet durant la partie de stocker le numéro sélectionné par le joueur
    private String difficulty;           // permet de connaitre la difficulté choisie par le joueur
    private Grille grille;
    private ActivityPageJeuBinding mBinding;    // permet d'intéragir avec les éléments de l'activité ActivityPageJeu
@@ -24,7 +23,6 @@ public class Singleton {
    private User user;
 
    public Singleton(){
-       this.selectedNumber = "";
        this.user = new User("Player1", null);
    }
 
@@ -42,14 +40,6 @@ public class Singleton {
 
    public void setUserName(String name){
        this.user.setName(name);
-   }
-
-   public String getSelectedNumber() {
-       return selectedNumber;
-   }
-
-   public void setSelectedNumber(String selectedNumber) {
-       this.selectedNumber = selectedNumber;
    }
 
    public void setDifficulty(String difficulty) {
