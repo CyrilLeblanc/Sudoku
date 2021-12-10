@@ -103,4 +103,17 @@ public class Grille {
         return str;
     }
 
+    public boolean isRempli(){
+
+        boolean value = true;
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if (!grille[i][j].isRempli()){
+                    value = false;
+                }
+            }
+        }
+        return value;
+    }
+
 }

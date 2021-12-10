@@ -86,4 +86,16 @@ public class Section {
         }
         return str;
     }
+
+    public boolean isRempli(){
+        boolean value = true;
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if (section[j][i].getValue() == ""){
+                    value = false;
+                }
+            }
+        }
+        return value;
+    }
 }

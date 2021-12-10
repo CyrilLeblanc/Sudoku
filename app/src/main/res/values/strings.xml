@@ -8,4 +8,5 @@
     <string name="congrats">Bravo</string>
     <string name="congrats2">! Vous avez gagné en </string>
     <string name="joke">"Quand tu as le nord en face,\ntu as forcément le sudoku"</string>
+    <string name="notFinished">Grille incorrecte...</string>
 </resources>
